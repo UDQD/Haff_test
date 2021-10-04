@@ -53,7 +53,9 @@ class Haff:
                 """
 
         if type(s) != str:
-            return ''
+            raise TypeError('Only str!')
+        if len(s)>10**4:
+            raise ValueError('<=10000')
 
 
         h = []
@@ -93,7 +95,8 @@ class Haff:
         -обнулим значение закодированного символа
         -вернем значение раскодированной строки
         """
-
+        if type(encoded)!=str or type(code)!=dict:
+            raise TypeError
         sx = []
         enc_ch = ""
         for ch in encoded:
