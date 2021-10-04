@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module haff</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>haff</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cqwed1%5Cdesktop%5Chaffman%5Chaff.py">c:\users\qwed1\desktop\haffman\haff.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="heapq.html">heapq</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="haff.html#Haff">Haff</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial">Leaf(<a href="builtins.html#tuple">builtins.tuple</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="haff.html#Leaf">Leaf</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial">Node(<a href="builtins.html#tuple">builtins.tuple</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="haff.html#Node">Node</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Haff">class <strong>Haff</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Главный&nbsp;класс,&nbsp;в&nbsp;котором&nbsp;происходят&nbsp;все&nbsp;необходимые&nbsp;вычисления<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Haff-huffman_decode"><strong>huffman_decode</strong></a>(self, encoded, code)</dt><dd><tt>:param&nbsp;type:&nbsp;str<br>
+:param&nbsp;type:&nbsp;dict<br>
+:return:&nbsp;str<br>
+Функция&nbsp;декодирования&nbsp;исходной&nbsp;строки&nbsp;по&nbsp;кодам&nbsp;Хаффмана<br>
+-инициализируем&nbsp;массив&nbsp;символов&nbsp;раскодированной&nbsp;строки<br>
+-инициализируем&nbsp;значение&nbsp;закодированного&nbsp;символа<br>
+-обойдем&nbsp;закодированную&nbsp;строку&nbsp;по&nbsp;символам<br>
+-добавим&nbsp;текущий&nbsp;символ&nbsp;к&nbsp;строке&nbsp;закодированного&nbsp;символа<br>
+-постараемся&nbsp;найти&nbsp;закодированный&nbsp;символ&nbsp;в&nbsp;словаре&nbsp;кодов<br>
+-если&nbsp;закодированный&nbsp;символ&nbsp;найден,<br>
+-добавим&nbsp;значение&nbsp;раскодированного&nbsp;символа&nbsp;к&nbsp;массиву&nbsp;раскодированной&nbsp;строки<br>
+-обнулим&nbsp;значение&nbsp;закодированного&nbsp;символа<br>
+-вернем&nbsp;значение&nbsp;раскодированной&nbsp;строки</tt></dd></dl>
+
+<dl><dt><a name="Haff-huffman_encode"><strong>huffman_encode</strong></a>(self, s)</dt><dd><tt>:param&nbsp;type:&nbsp;str<br>
+:return:&nbsp;dict<br>
+Функция&nbsp;кодирования&nbsp;строки&nbsp;в&nbsp;коды&nbsp;Хаффмана.<br>
+-инициализируем&nbsp;очередь&nbsp;с&nbsp;приоритетами.<br>
+-постоим&nbsp;очередь&nbsp;с&nbsp;помощью&nbsp;цикла,&nbsp;добавив&nbsp;счетчик,&nbsp;уникальный&nbsp;для&nbsp;всех&nbsp;листьев.<br>
+-очередь&nbsp;будет&nbsp;представлена&nbsp;частотой&nbsp;символа,&nbsp;счетчиком&nbsp;и&nbsp;самим&nbsp;символом.<br>
+-построим&nbsp;очередь&nbsp;с&nbsp;приоритетами.<br>
+-инициализируем&nbsp;значение&nbsp;счетчика&nbsp;длиной&nbsp;очереди.<br>
+-пока&nbsp;в&nbsp;очереди&nbsp;есть&nbsp;хотя&nbsp;бы&nbsp;2&nbsp;элемента.<br>
+-вытащим&nbsp;элемент&nbsp;с&nbsp;минимальной&nbsp;частотой&nbsp;-&nbsp;левый&nbsp;узел.<br>
+-вытащим&nbsp;следующий&nbsp;элемент&nbsp;с&nbsp;минимальной&nbsp;частотой&nbsp;-&nbsp;правый&nbsp;узел.<br>
+-поместим&nbsp;в&nbsp;очередь&nbsp;новый&nbsp;элемент,&nbsp;у&nbsp;которого&nbsp;частота&nbsp;равна&nbsp;суме&nbsp;частот&nbsp;вытащенных&nbsp;элементов.<br>
+-добавим&nbsp;новый&nbsp;внутренний&nbsp;узел&nbsp;у&nbsp;которого.<br>
+-потомки&nbsp;left&nbsp;и&nbsp;right&nbsp;соответственно.<br>
+-инкрементируем&nbsp;значение&nbsp;счетчика&nbsp;при&nbsp;добавлении&nbsp;нового&nbsp;элемента&nbsp;дерева.<br>
+-инициализируем&nbsp;словарь&nbsp;кодов&nbsp;символов.<br>
+-если&nbsp;строка&nbsp;пустая,&nbsp;то&nbsp;очередь&nbsp;будет&nbsp;пустая&nbsp;и&nbsp;обходить&nbsp;нечего.<br>
+-в&nbsp;очереди&nbsp;1&nbsp;элемент,&nbsp;приоритет&nbsp;которого&nbsp;не&nbsp;важен,&nbsp;а&nbsp;сам&nbsp;элемент&nbsp;-&nbsp;корень&nbsp;дерева.<br>
+-обойдем&nbsp;дерева&nbsp;от&nbsp;корня&nbsp;и&nbsp;заполним&nbsp;словарь&nbsp;для&nbsp;получения&nbsp;кодирования&nbsp;Хаффмана.<br>
+-возвращаем&nbsp;словарь&nbsp;символов&nbsp;и&nbsp;соответствующих&nbsp;им&nbsp;кодов.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Leaf">class <strong>Leaf</strong></a>(Leaf)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Leaf">Leaf</a>(char)<br>
+&nbsp;<br>
+класс&nbsp;для&nbsp;листьев&nbsp;дерева,&nbsp;у&nbsp;него&nbsp;нет&nbsp;потомков,&nbsp;но&nbsp;есть&nbsp;значение&nbsp;символа<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="haff.html#Leaf">Leaf</a></dd>
+<dd>Leaf</dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Leaf-walk"><strong>walk</strong></a>(self, code, acc)</dt><dd><tt>потомков&nbsp;у&nbsp;листа&nbsp;нет,&nbsp;по&nbsp;этому&nbsp;для&nbsp;значения&nbsp;мы&nbsp;запишем&nbsp;построенный&nbsp;код&nbsp;для&nbsp;данного&nbsp;символа<br>
+если&nbsp;строка&nbsp;длиной&nbsp;1&nbsp;то&nbsp;acc&nbsp;=&nbsp;"",&nbsp;для&nbsp;этого&nbsp;случая&nbsp;установим&nbsp;значение&nbsp;acc&nbsp;=&nbsp;0</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from Leaf:<br>
+<dl><dt><a name="Leaf-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;tuple.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="Leaf-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#Leaf">Leaf</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<hr>
+Class methods inherited from Leaf:<br>
+<dl><dt><a name="Leaf-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#Leaf">Leaf</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods inherited from Leaf:<br>
+<dl><dt><a name="Leaf-__new__"><strong>__new__</strong></a>(_cls, char)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#Leaf">Leaf</a>(char,)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from Leaf:<br>
+<dl><dt><strong>char</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from Leaf:<br>
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_fields</strong> = ('char',)</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="Leaf-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Leaf-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="Leaf-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>See&nbsp;<a href="http://www.python.org/dev/peps/pep-0585/">PEP&nbsp;585</a></tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Node">class <strong>Node</strong></a>(Node)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Node">Node</a>(left,&nbsp;right)<br>
+&nbsp;<br>
+класс&nbsp;для&nbsp;ветвей&nbsp;дерева&nbsp;-&nbsp;внутренних&nbsp;узлов;&nbsp;у&nbsp;них&nbsp;есть&nbsp;потомки<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="haff.html#Node">Node</a></dd>
+<dd>Node</dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Node-walk"><strong>walk</strong></a>(self, code, acc)</dt><dd><tt>чтобы&nbsp;обойти&nbsp;дерево&nbsp;нам&nbsp;нужно<br>
+пойти&nbsp;в&nbsp;левого&nbsp;потомка,&nbsp;добавив&nbsp;к&nbsp;префиксу&nbsp;0<br>
+затем&nbsp;пойти&nbsp;в&nbsp;правого&nbsp;потомка,&nbsp;добавив&nbsp;к&nbsp;префиксу&nbsp;1</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from Node:<br>
+<dl><dt><a name="Node-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;tuple.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="Node-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="Node-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="Node-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#Node">Node</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<hr>
+Class methods inherited from Node:<br>
+<dl><dt><a name="Node-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#Node">Node</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods inherited from Node:<br>
+<dl><dt><a name="Node-__new__"><strong>__new__</strong></a>(_cls, left, right)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#Node">Node</a>(left,&nbsp;right)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from Node:<br>
+<dl><dt><strong>left</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>right</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from Node:<br>
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_fields</strong> = ('left', 'right')</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="Node-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="Node-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="Node-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="Node-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="Node-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="Node-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="Node-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="Node-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="Node-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Node-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="Node-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>See&nbsp;<a href="http://www.python.org/dev/peps/pep-0585/">PEP&nbsp;585</a></tt></dd></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
